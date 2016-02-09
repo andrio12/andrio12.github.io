@@ -3,14 +3,50 @@
   <head>
     <meta charset="utf-8">
     <meta name="author" content="Andri Olafsson">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     <script type='text/javascript' src='/js/jquery-2.2.0.min.js'></script>
+    <script type='text/javascript' src='/js/bootstrap.min.js'></script>
     <script type='text/javascript' src='/js/knockout-3.4.0.js'></script>
     <script type='text/javascript' src='/js/index.js'></script>
   </head>
   <body>
-    <h1>Halló</h1>
-    <p data-bind="text: personName"></p>
-    <p data-bind="text: personAge"></p>
+    <div class="container">
+      <h1>Halló</h1>
+      <p data-bind="text: personName"></p>
+      <p data-bind="text: personAge"></p>
+
+      <p><a href="http://knockoutjs.com/documentation/template-binding.html">Knockout templates</a></p>
+      <p><a href="http://stackoverflow.com/questions/6084360/using-node-js-as-a-simple-web-server">simple node server</a></p>
+
+      <h2>Participants - foreach template</h2>
+      Here are the participants:
+      <div data-bind="template: { name: 'person-template', foreach: people }"></div>
+
+      <script type="text/html" id="person-template">
+          <h3 data-bind="text: name"></h3>
+          <p>Credits: <span data-bind="text: credits"></span></p>
+      </script>
+
+      <h2>Seasons - foreach as templates</h2>
+      <ul data-bind="template: { name: 'seasonTemplate', foreach: seasons, as: 'season' }"></ul>
+
+      <script type="text/html" id="seasonTemplate">
+          <li>
+              <strong data-bind="text: name"></strong>
+              <ul data-bind="template: { name: 'monthTemplate', foreach: months, as: 'month' }"></ul>
+          </li>
+      </script>
+
+      <script type="text/html" id="monthTemplate">
+          <li>
+              <span data-bind="text: month"></span>
+              is in
+              <span data-bind="text: season.name"></span>
+          </li>
+      </script>
+
+    </div>
   </body>
 </html>
