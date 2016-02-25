@@ -2,29 +2,40 @@ var myViewModel = function() {
 
   self = this;
 
-  self.personName = ko.observable('Andri');
-  self.personAge = ko.observable(33);
-
-  // This observable array initially contains three objects
-  self.anotherObservableArray = ko.observableArray([
-    { name: "Bungle", type: "Bear" },
-    { name: "George", type: "Hippo" },
-    { name: "Zippy", type: "Unknown" }
+  //drop down listinn
+  self.availableFields = ko.observableArray([
+  	"Instructions",
+  	"Multiple Choice Question",
+  	"Text Field Question"
   ]);
+  self.selectedField = ko.observable("Multiple Choice Question");
 
-  self.people = ko.observableArray([
-    { name: 'Franklin', credits: 250 },
-    { name: 'Mario', credits: 5800 }
-  ]);
+  //create the selected field
+  self.newField = ko.observable("");
 
-  self.seasons = ko.observableArray([
-    { name: 'Spring', months: [ 'March', 'April', 'May' ] },
-    { name: 'Summer', months: [ 'June', 'July', 'August' ] },
-    { name: 'Autumn', months: [ 'September', 'October', 'November' ] },
-    { name: 'Winter', months: [ 'December', 'January', 'February' ] }
-  ]);
+  self.addField = function() {
+  	self.questions.push(self.selectedField() + "ViewModel")
+  };
+
+  //customize new field 
+  self.question = ko.observable("");
+  self.questions = ko.observableArray([]);
+
+  self.addQuestion = function() {
+  	self.questions.push(self.question());
+  }.bind(self);
 
 };
+
+var InstructionsViewModel = function() {
+	var self = this;
+	self.instructions = ko.observable("");
+	console.log("hallo");
+};
+
+
+
+
 
 $(document).ready(function() {
   ko.applyBindings(new myViewModel);
