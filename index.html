@@ -4,26 +4,42 @@
     <meta charset="utf-8">
     <meta name="author" content="Andri Olafsson">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="stylesheets/normalize.css" rel="stylesheet">
-    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
-    <link href="stylesheets/style.css" rel="stylesheet">
-    <script type='text/javascript' src='/js/jquery-2.2.0.min.js'></script>
-    <script type='text/javascript' src='/js/bootstrap.min.js'></script>
-    <script type='text/javascript' src='/js/knockout-3.4.0.js'></script>
-    <script type='text/javascript' src='/js/index.js'></script>
+    <link href="public/stylesheets/normalize.css" rel="stylesheet">
+    <link href="public/stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="public/stylesheets/style.css" rel="stylesheet">
+    <script type='text/javascript' src='public/js/jquery-2.2.0.min.js'></script>
+    <script type='text/javascript' src='public/js/bootstrap.min.js'></script>
   </head>
   <body>
     <div class="container">
-      <h1>Dynamic form field</h1>
       
-      <form data-bind="submit:addField">
-        <select data-bind="options: availableFields, value: selectedField"></select>
-        <button type="submit">Create</button>
-      </form>
+      <header class="col-sm-12">
+        <div class="col-sm-3 logo">
+          <h4 class="mock-text"><i>Betri menntun logo</i></h4>
+        </div>
+        <div class="col-sm-9 seminar-name">
+          <h1 class="text-center">Seminar Name</h1>
+        </div>
+      </header>
+     
+      <aside class="col-sm-3">
+        <div class="list-group">
+          <a class="list-group-item active" href="#">Lectures</a>
+          <a class="list-group-item" href="#">Assignments</a>
+          <a class="list-group-item" href="#">Tests</a>
+          <a class="list-group-item" href="#">Schedule</a>
+          <a class="list-group-item" href="#">Programming Assignments or some kind of long named shit</a>
+          <a class="list-group-item" href="#">Discussion Forums</a>
+          <a class="list-group-item" href="#">Another custom resource</a>
+          <a class="list-group-item" href="#">External site <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></a></span>
+          <a class="list-group-item" href="#">Booksite <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a> 
+        </div>
+      </aside>
 
-      <ul data-bind="foreach: questions">
-        <li data-bind="text: $data"></li>
-      </ul>
+      <section class="col-sm-9">
+        <h2>Lectures</h2>
+        <h4 class="mock-text"><i>Selected Seminar resource</i></h4>
+      </section>
 
     </div>
   </body>

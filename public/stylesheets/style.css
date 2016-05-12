@@ -1,0 +1,27 @@
+/*bootstrap classes edits*/
+.list-group-item:hover{
+	background: #000;
+}
+
+/*custom css*/
+header{
+	
+}
+
+aside{
+
+}
+
+section{
+	min-height: 75em !important;
+	margin-bottom: 5em;
+
+	/*box shadow effect*/
+	-webkit-box-shadow: 3px 3px 5px 1px rgba(34,34,34,0.55);
+	-moz-box-shadow: 3px 3px 5px 1px rgba(34,34,34,0.55);
+	box-shadow: 3px 3px 5px 1px rgba(34,34,34,0.55);
+}
+
+.content{
+	padding-top: 2em;
+}
